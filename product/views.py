@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view ,permission_classes
 from rest_framework.response import Response;
 from .models import Product
 from .serializers import ProductSerializers
@@ -34,3 +34,5 @@ def get_all_product_by_Pagination(request):
      queryset = paginate.paginate_queryset(queryset=product,request=request)
      serializer = ProductSerializers(queryset,many=True)
      return Response({"products":serializer.data})
+
+
