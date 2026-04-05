@@ -34,7 +34,7 @@ def get_product_by_filter(request):
 def get_all_product_by_Pagination(request):
      product = Product.objects.all()
      paginate = PageNumberPagination()
-     paginate.page_size = 1
+     paginate.page_size = 2
      queryset = paginate.paginate_queryset(queryset=product,request=request)
      serializer = ProductSerializers(queryset,many=True)
      return Response({"products":serializer.data})

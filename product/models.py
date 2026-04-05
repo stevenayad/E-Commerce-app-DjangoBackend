@@ -4,11 +4,9 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class Category(models.TextChoices):
-    COMPUTERS = 'Computers'
-    FOOD = 'Food'
-    KIDS = 'Kids'
-    HOME = 'Home'
-
+    Woman = 'Wowan'
+    MAN = 'Man'
+    GRIL = 'Gril'
 
 class Product(models.Model):
     name = models.CharField(max_length=200, default="", blank=False)
@@ -20,6 +18,7 @@ class Product(models.Model):
     stock = models.IntegerField(default=0)
     createAt = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
+    image = models.ImageField(upload_to='products/', null=True, blank=True)
 
     def __str__(self):
         return self.name

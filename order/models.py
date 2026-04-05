@@ -23,7 +23,7 @@ class Order(models.Model):
     state = models.CharField(max_length=100, default="", blank=False)
     country = models.CharField(max_length=100, default="", blank=False)
     phone_no = models.CharField(max_length=100, default="", blank=False)
-    total_amount = models.IntegerField( default=0 )
+    total_amount = models.DecimalField(max_digits=12, decimal_places=2, default=0)
     payment_status = models.CharField(max_length=30, choices=PaymentStatus.choices, default=PaymentStatus.UNPAID)
     payment_mode = models.CharField(max_length=30, choices=PaymentMode.choices, default=PaymentMode.COD)
     status = models.CharField(max_length=60, choices=OrderStatus.choices, default=OrderStatus.PROCESSING)

@@ -13,7 +13,7 @@ class OrderSerializer (serializers.ModelSerializer):
          model = Order
          fields= "__all__"
 
-    def get_order_items(requuest,obj):
+    def get_order_items(self, obj):
         orderitems = obj.orderitems.all()
-        serializer = OrderItemsSerializer(orderitems,many=True)
-        return serializer.data 
+        serializer = OrderItemsSerializer(orderitems, many=True)
+        return serializer.data
